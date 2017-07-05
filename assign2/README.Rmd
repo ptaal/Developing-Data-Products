@@ -2,5 +2,4 @@
 
 ## Simple Leaflet Map  
   
-  
 #### Follow this link to see it: [Simple Leaflet Map](https://ptaal.github.io/Developing-Data-Products/assign2/leaflet.html)

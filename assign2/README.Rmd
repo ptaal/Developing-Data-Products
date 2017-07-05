@@ -1,13 +1,6 @@
----
-title: "README"
-#author: "Pouria"
-#date: "7/4/2017"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Developing Data Products
 
 ## Simple Leaflet Map  
+  
+  
 #### Follow this link to see it: [Simple Leaflet Map](https://ptaal.github.io/Developing-Data-Products/assign2/leaflet.html)

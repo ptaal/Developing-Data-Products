@@ -1,0 +1,45 @@
+---
+title: "Developing Data Products Project - Week 2"
+#author: "Pouria"
+#date: "7/4/2017"
+output: 
+    html_document: 
+        keep_md: yes
+---
+  
+## Some Designated Landmarks in San Francisco  
+## July 5, 2017  
+```{r, echo=FALSE, message=FALSE}
+library(leaflet)
+sfLandmarks <- data.frame(landmark = c("Coit Tower", "Golden Gate Bridge", "The Walt Disney Family Museum", "Chinatown", "Golden Gate Park", "The Sutro Bath"), lat = c(37.802395, 37.819924, 37.801446, 37.795935, 37.768886, 37.780429), long = c(-122.405822,  -122.478253, -122.458720, -122.407625, -122.486280, -122.513688))
+sfLandmarksSites <- c(
+    "<a href='https://en.wikipedia.org/wiki/Coit_Tower'>Coit Tower</a>", 
+    "<a href='http://goldengatebridge.org/'>Golden Gate Bridge</a>", 
+    "<a href='http://waltdisney.org/visit'>The Walt Disney Family Museum</a>", 
+    "<a href='http://www.sanfranciscochinatown.com/'>Chinatown</a>", 
+    "<a href='https://goldengatepark.com/'>Golden Gate Park</a>", 
+    "<a href='http://www.inside-guide-to-san-francisco-tourism.com/sutro-baths.html'>The Sutro Bath</a>")
+iconSet = iconList(coitIcon <- makeIcon(
+    iconUrl = "https://upload.wikimedia.org/wikipedia/commons/d/de/Coittower1.jpg", iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16),  gBridgeIcon <- makeIcon(
+    iconUrl = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg", 
+    iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16), disneyIcon <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/7/70/Disney_Museum_2.JPG", iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16), chinaIcon <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/b/b0/1_chinatown_san_francisco_arch_gateway.JPG", iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16), gParkIcon <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/b/be/Golden_Gate_Park_air_2.jpg", iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16), sBathIcon <- makeIcon(iconUrl = "https://upload.wikimedia.org/wikipedia/commons/f/ff/Sutro_Baths_%26_Seal_Rocks%2C_GGNRA.jpg", iconWidth = 31*215/230, iconHeight = 31, 
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+)
+sfLandmarks %>% 
+    leaflet() %>% 
+    addTiles() %>% 
+    addRectangles(lng1 = -122.511006, lat1 = 37.774782, 
+                  lng2 = -122.453003, lat2 = 37.764025, 
+                  fillColor = "transparent", color = "#008000", 
+                  weight = 5) %>% 
+    addRectangles(lng1 = -122.410311, lat1 = 37.798036, 
+                  lng2 = -122.403998, lat2 = 37.790151, 
+                  fillColor = "transparent", color = "#FF0000", 
+                  weight = 5) %>% 
+    addMarkers(icon = iconSet[1:6], popup = sfLandmarksSites)
+```

@@ -11,15 +11,21 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+## Week 3 - R Markdown Presentation and Plotly
+# Pouria
+# July 8, 2017
 
 --- .class #id 
-
+  
 ## Slide 2
+```{r, echo=FALSE}
+library(plotly)
+set.seed(2016-07-21)
+temp <- rnorm(100, mean = 30, sd = 5)
+pressure <- rnorm(100)
+dtime <- 1:100
+plot_ly(x = temp, y = pressure, z = dtime, type = "scatter3d", mode = "markers", color = temp)
+```
 
 
 

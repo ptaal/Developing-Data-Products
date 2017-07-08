@@ -11,15 +11,31 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+## Week 3 - R Markdown Presentation and Plotly
+# Pouria
+# July 8, 2017
 
 --- .class #id 
-
+  
 ## Slide 2
+
+```
+## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
+```
+
+```
+## Warning in normalizePath(f2): path[1]="./webshot75e07d237467.png": No such
+## file or directory
+```
+
+```
+## Warning in file(con, "rb"): cannot open file './webshot75e07d237467.png':
+## No such file or directory
+```
+
+```
+## Error in file(con, "rb"): cannot open the connection
+```
 
 
 

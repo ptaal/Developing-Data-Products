@@ -18,25 +18,10 @@ knit        : slidify::knit2slides
 --- .class #id 
   
 ## Slide 2
+![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1-1.png)
 
-```
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-```
-
-```
-## Warning in normalizePath(f2): path[1]="./webshot75e07d237467.png": No such
-## file or directory
-```
-
-```
-## Warning in file(con, "rb"): cannot open file './webshot75e07d237467.png':
-## No such file or directory
-```
-
-```
-## Error in file(con, "rb"): cannot open the connection
-```
-
-
-
+--- .class #id 
+  
+## Slide 3
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 

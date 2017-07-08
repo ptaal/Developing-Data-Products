@@ -18,15 +18,25 @@ knit        : slidify::knit2slides
 --- .class #id 
   
 ## Slide 2
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
+library(devtools)
 library(plotly)
-set.seed(2016-07-21)
-temp <- rnorm(100, mean = 30, sd = 5)
-pressure <- rnorm(100)
-dtime <- 1:100
-plot_ly(x = temp, y = pressure, z = dtime, type = "scatter3d", mode = "markers", color = temp)
+p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) +
+            geom_bar(position = "dodge")
+ggplotly(p)
+#set.seed(2016-07-21)
+#temp <- rnorm(100, mean = 30, sd = 5)
+#pressure <- rnorm(100)
+#dtime <- 1:100
+#plot_ly(x = temp, y = pressure, z = dtime, type = "scatter3d", mode = "markers", color = temp)
 ```
 
-
-
+--- .class #id 
+  
+## Slide 3
+```{r, echo=FALSE, message=FALSE}
+library(devtools)
+library(plotly)
+plot_ly(mtcars, x = mtcars$wt, y = mtcars$mpg, mode = "markers")
+```
 

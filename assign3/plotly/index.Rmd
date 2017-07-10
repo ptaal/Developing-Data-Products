@@ -3,40 +3,43 @@ title       :
 subtitle    : 
 author      : 
 job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : html5slides   # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+widgets     : [plotly]      # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
----
+--- {class: class1, id: id1, bg: beige}
 
-## Week 3 - R Markdown Presentation and Plotly
-# Pouria
-# July 8, 2017
-
---- .class #id 
+## Week 3 - R Markdown Presentation and Plotly  
   
-## Slide 2
-```{r, echo=FALSE, message=FALSE}
-library(devtools)
-library(plotly)
-p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) +
-            geom_bar(position = "dodge")
-ggplotly(p)
-#set.seed(2016-07-21)
-#temp <- rnorm(100, mean = 30, sd = 5)
-#pressure <- rnorm(100)
-#dtime <- 1:100
-#plot_ly(x = temp, y = pressure, z = dtime, type = "scatter3d", mode = "markers", color = temp)
+Pouria  
+July 8, 2017
+
+--- {class: class2, id: id2, bg: beige}
+
+## Plotly Presentation  
+Plotly for Motor Trend Car Road Tests (mtcars) datasets
+```{r graph, echo=FALSE, message=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="./graph.html"> </iframe>')
 ```
 
---- .class #id 
-  
-## Slide 3
 ```{r, echo=FALSE, message=FALSE}
 library(devtools)
+library(dplyr)
 library(plotly)
-plot_ly(mtcars, x = mtcars$wt, y = mtcars$mpg, mode = "markers")
+data(mtcars)
+mtcars$am[mtcars$am == 0] <- "Automatic"
+mtcars$am[mtcars$am == 1] <- "Manual"
+plotlyMargin <- list(
+    l = 60,
+    r = 60, 
+    b = 110, 
+    t = 110, 
+    pad = 2
+)
+plotly1 <- plot_ly(mtcars, x = factor(mtcars$cyl), y = mtcars$mpg, color = factor(mtcars$am)) %>% add_boxplot() %>% add_markers() %>% layout(title = "Automatic/Manual Cars' Miles Per Gallon Coupled by Number of Cylinders", xaxis = list(title = "Number of Cylinders (cyl)"), yaxis = list(title = "Mile Per Gallon (mpg)"), autosize = TRUE, width = 700, height = 500, margin = plotlyMargin, paper_bgcolor = '#f5f5dc', plot_bgcolor = '#f5f5dc') %>% config(editable = TRUE, displayModeBar = TRUE, showTips = TRUE, showAxisRangeEntryBoxes = TRUE)
+plotly1
+htmlwidgets::saveWidget(plotly1, "graph.html")
 ```
 

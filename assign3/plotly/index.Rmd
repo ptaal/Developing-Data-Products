@@ -38,7 +38,12 @@ plotlyMargin <- list(
     t = 110, 
     pad = 2
 )
-plotly1 <- plot_ly(mtcars, x = factor(mtcars$cyl), y = mtcars$mpg, color = factor(mtcars$am)) %>% add_boxplot() %>% add_markers() %>% layout(title = "Automatic/Manual Cars' Miles Per Gallon Coupled by Number of Cylinders", xaxis = list(title = "Number of Cylinders (cyl)"), yaxis = list(title = "Mile Per Gallon (mpg)"), autosize = TRUE, width = 700, height = 500, margin = plotlyMargin, paper_bgcolor = '#f5f5dc', plot_bgcolor = '#f5f5dc') %>% config(editable = TRUE, displayModeBar = TRUE, showTips = TRUE, showAxisRangeEntryBoxes = TRUE)
+plotly1 <- plot_ly(mtcars, x = factor(mtcars$cyl), y = mtcars$mpg,  color = factor(mtcars$am)) %>% add_boxplot() %>% 
+    add_markers() %>% layout(title = "Automatic/Manual Cars' Miles Per Gallon Coupled by Number of Cylinders", 
+    xaxis = list(title = "Number of Cylinders (cyl)"), yaxis = list(title = "Mile Per Gallon (mpg)"), 
+    autosize = TRUE, width = 700, height = 500, margin = plotlyMargin, paper_bgcolor = '#f5f5dc', 
+    plot_bgcolor = '#f5f5dc') %>% config(editable = TRUE, displayModeBar = TRUE, showTips = TRUE, 
+    showAxisRangeEntryBoxes = TRUE)
 plotly1
 htmlwidgets::saveWidget(plotly1, "graph.html")
 ```

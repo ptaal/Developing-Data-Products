@@ -1,3 +1,5 @@
+This app demonstrates some advanced plot interaction features:
+
 # Developing Data Products
 
 ## Course Project

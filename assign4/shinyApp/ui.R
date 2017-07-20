@@ -12,18 +12,34 @@ library(caret)
 shinyUI(fluidPage(
     titlePanel("Prediction Application"), 
     sidebarPanel(
-        radioButtons("dataset", "Data Set", 
+        radioButtons("dataset", "Select Data Set", 
                      choices = c("iris", "InsectSprays"), 
-                     inline = TRUE, selected = "InsectSprays") 
-        #sliderInput('sliderMPG', 'What is the MPG of the car?', 
-                    #10, 35, value = 20)
-        
+                     inline = TRUE, selected = "InsectSprays"), 
+        selectInput(inputId = "models",
+                    label = "Choose a Model:",
+                    choices = c("lda", "rf", "rpart", "lvq")),
+        sliderInput('dataPartition', 
+                    'Data Partition for Testing Data Set', 
+                    min = .05, max = .45, step = .05, value = .30), 
+        submitButton("Submit")
     ),
     mainPanel(
-        p('Output text1'), 
-        textOutput('text1'),
-        p('Output text2'), 
-        textOutput('text2')
+        column(3,
+               p('Output text1'), 
+               textOutput('text1'), 
+               p('Output text2'), 
+               textOutput('text2'), 
+               p('Output text3'), 
+               textOutput('text3'), 
+               p('Output text4'), 
+               textOutput('text4'), 
+               p('Output text5'), 
+               textOutput('text5')
+        ), 
+        column(4, offset = .5, 
+               tableOutput('table')
+        )
+        #tableOutput('table')
     )
 ))
 

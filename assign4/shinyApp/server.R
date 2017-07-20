@@ -18,6 +18,64 @@ shinyServer(
             }
         })
         output$text2 <- renderText({iristext2()})
+        models <- reactive({
+            switch(input$models, lda = "lda", rf = "rf", 
+                   rpart = "rpart", lvq = "lvq")
+        })
+        output$text3 <- renderText({models()})
+        partition <- reactive({
+            partition <- input$dataPartition
+        })
+        output$table <- renderTable({
+            if(iristext2() == "iris") {
+                outcome = "Species"
+            }
+            else {
+                outcome = "spray"
+            }
+            #return(outcome)
+            inTrain <- createDataPartition(
+                y = dataset()[[outcome]], p = partition(), 
+                list = FALSE)
+            #return(length(inTrain))
+            #training <- dataset()[inTrain, ]
+            training <- reactive({
+                dataset()[inTrain, ]
+            })
+            return(head(training()))
+            #testing <- reactive({
+                #dataset()[-inTrain, ]
+            #})
+            #testing <- dataset()[-inTrain, ]
+            #predictors <- reactive({
+                #names(
+                    #dataset()[-which(names(dataset()) == outcome)]
+                    #)
+            #})
+            #set.seed(123)
+            #return(training()[[1]])
+            #return(predictors())
+            #predictors <- names(
+                #dataset()[-which(names(dataset()) == outcome)])
+            #return(predictors)
+            #set.seed(123)
+            #train_control <- trainControl(
+                #method = "cv", number = 10, 
+                #savePredictions = 'final', classProbs = TRUE)
+            #set.seed(123)
+            #model_fit <- train(training[[ ,predictors]], 
+                               #training[[ ,outcome]], 
+                               #method = models(),
+                               #trControl = train_control)
+            #output$text5 <- renderText({
+                #model_fit$results['Accuracy']})
+            #return(model_fit)
+        }, align = 'l')
+        #output$table <- renderTable(training)
+        #inTrain <- createDataPartition(
+         #   y = models$outcome, p = 0.3, list = FALSE
+        #)
+        
     }
 )
 

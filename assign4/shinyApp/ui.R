@@ -14,9 +14,17 @@ shinyUI(fluidPage(
     sidebarPanel(
         radioButtons("dataset", "Data Set", 
                      choices = c("iris", "InsectSprays"), 
-                     inline = TRUE)
+                     inline = TRUE, selected = "InsectSprays") 
+        #sliderInput('sliderMPG', 'What is the MPG of the car?', 
+                    #10, 35, value = 20)
+        
     ),
-    mainPanel()
+    mainPanel(
+        p('Output text1'), 
+        textOutput('text1'),
+        p('Output text2'), 
+        textOutput('text2')
+    )
 ))
 
 

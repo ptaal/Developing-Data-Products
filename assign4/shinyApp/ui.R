@@ -2,6 +2,7 @@
 library(shiny)
 library(datasets)
 library(caret)
+library(e1071)
 shinyUI(fluidPage(
     titlePanel("Prediction Application"), 
     sidebarPanel(

@@ -2,6 +2,7 @@
 library(shiny)
 library(datasets)
 library(caret)
+library(e1071)
 shinyServer(
     function(input, output) {
         # Assigning the selected data set to 

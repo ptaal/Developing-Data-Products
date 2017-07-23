@@ -1,10 +1,3 @@
-# 07/10/17(main): my shiny app project is:
-# let the user create a project for themselves (i think)
-# it works on particular data and predicts for a certain 
-# variable (basically created app similar to my course 
-# project for the practical-machine-learning course project!)
-# working with (iris and InsectSprays) data frame 
-
 
 library(shiny)
 library(datasets)
@@ -20,26 +13,34 @@ shinyUI(fluidPage(
                     choices = c("lda", "rf", "rpart", "lvq")),
         sliderInput('dataPartition', 
                     'Data Partition for Testing Data Set', 
-                    min = .05, max = .45, step = .05, value = .30), 
+                    min = .20, max = .45, step = .025, value = .30), 
         submitButton("Submit")
     ),
-    mainPanel(
-        column(3,
-               p('Output text1'), 
-               textOutput('text1'), 
-               p('Output text2'), 
-               textOutput('text2'), 
-               p('Output text3'), 
-               textOutput('text3'), 
-               p('Output text4'), 
-               textOutput('text4'), 
-               p('Output text5'), 
+    fluidRow(
+        column(3, 
+               tableOutput('table')
+    ), 
+    fluidRow(
+        column(6, 
+               strong("Unmatched Index: "), 
+               textOutput('text6')
+        ), 
+        column(1, 
+               strong("Data Set: "), 
+               textOutput('text1')
+        ), 
+        column(2, 
+               strong("Models: "), 
+               textOutput('text3')
+        ), 
+        column(2, 
+               strong("Model Accuracy: "), 
+               textOutput('text4')
+               ), 
+        column(2, 
+               strong("Cross-Tabulation Accuracy: "), 
                textOutput('text5')
-               #p('Output numeric1')
         )
-        #column(4, offset = .5, 
-               #tableOutput('table')
-        #)
-        #tableOutput('table')
+        )
     )
 ))

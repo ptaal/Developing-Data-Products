@@ -1,0 +1,15 @@
+base
+devtools
+slidify
+shiny
+lattice
+ggplot2
+caret
+e1071
+MASS
+knitr
+htmltools
+rmarkdown
+revealjs
+flexdashboard
+randomForest

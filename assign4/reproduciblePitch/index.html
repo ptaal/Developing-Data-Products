@@ -2,14 +2,15 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title></title>
-	<meta name="description" content="">
+	<title>shiny document</title>
+	<meta name="description" content="shiny document">
 	<meta name="author" content="">
 	<meta name="generator" content="slidify" />
 	
 	<!-- LOAD STYLE SHEETS -->
 	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
-	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "libraries/widgets/interactive/css/aceeditor.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
   
 </head>
 <body style='display: none'>
@@ -17,31 +18,89 @@
      <article class="class1" id="id1" style="background:white;">
   <h3>Week 4 - Reproducible Pitch Presentation</h3>
   <p>Pouria<br>
-July 23, 2017</p>
+July 25, 2017</p>
 
 </article>
 
 <article class="class2" id="id2" style="background:white;">
-  <h3>Slide 2</h3>
-  <p>Application</p>
+  <h3>Application Design With Server.R Code Example</h3>
+  <h6>This Shiny application conveniently assists you to make predictions on either &quot;iris&quot; or &quot;InsectSprays&quot; data set. You may <a href="https://ptaal.shinyapps.io/shinyApp/">Click Here</a> to see the Shiny Application.</h6>
+
+<pre><code class="r">radio_buttons &lt;- h6(radioButtons(&quot;dataset&quot;, &quot;Select Data Set&quot;, 
+                                 choices = c(&quot;iris&quot;, &quot;InsectSprays&quot;), 
+                                 inline = TRUE, selected = &quot;InsectSprays&quot;))
+print(radio_buttons)
+</code></pre>
+
+<h6>
+  <div id="dataset" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline">
+    <label class="control-label" for="dataset">Select Data Set</label>
+    <div class="shiny-options-group">
+      <label class="radio-inline">
+        <input type="radio" name="dataset" value="iris"/>
+        <span>iris</span>
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dataset" value="InsectSprays" checked="checked"/>
+        <span>InsectSprays</span>
+      </label>
+    </div>
+  </div>
+</h6>
 
 </article>
 
 <article class="class3" id="id3" style="background:white;">
-  <h3>Slide 3</h3>
-  <p>Application</p>
+  <h3>Application Design With R Code Expression Example</h3>
+  <h6>Some R code example for the iris <strong>Data Partition</strong> section:</h6>
+
+<pre><code class="r">library(caret)
+inTrain &lt;- createDataPartition(y = iris$Species, p = 0.3, list = FALSE)
+training &lt;- iris[-inTrain, ]
+testing &lt;- iris[inTrain, ]
+dim(iris)
+</code></pre>
+
+<pre><code>## [1] 150   5
+</code></pre>
+
+<pre><code class="r">dim(training)
+</code></pre>
+
+<pre><code>## [1] 105   5
+</code></pre>
+
+<pre><code class="r">dim(testing)
+</code></pre>
+
+<pre><code>## [1] 45  5
+</code></pre>
 
 </article>
 
 <article class="class4" id="id4" style="background:white;">
-  <h3>Slide 4</h3>
-  <p>Application</p>
+  <h3>How To Use</h3>
+  <ol>
+<li>Select either of &quot;iris&quot; or &quot;InsectSprays&quot; data set</li>
+<li>Choose between models of, lda, rf, rpart, or lvq</li>
+<li>Select the percentage of data being allocated to the new testing data set</li>
+<li>Click the &quot;Submit&quot; button to see the results on the left side</li>
+</ol>
 
 </article>
 
 <article class="class5" id="id5" style="background:white;">
-  <h3>Slide 5</h3>
-  <p>Application</p>
+  <h3>Results Interpretation and Why To Use This App!!</h3>
+  <ul>
+<li>The <strong>table</strong> displays the first 6 unmatched rows</li>
+<li><strong>Unmatched Index</strong>, displays the original index of all the unmatched rows</li>
+<li>Data Set, displays the selected data set</li>
+<li>Models, displays the selected model</li>
+<li>Model Accuracy, displays the accuracy level in percentage</li>
+<li>Cross-Tabulation Accuracy, displays the actual accuracy between the outcome column and the model predicted column in percentage</li>
+</ul>
+
+<h4>Finally, use this application if you LOVE prediction</h4>
 
 </article>
 
@@ -49,6 +108,11 @@ July 23, 2017</p>
 </body>
   <!-- LOAD JAVASCRIPTS  -->
 	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<script src="shared/shiny.js" type="text/javascript"></script>
+	<script src="shared/slider/js/jquery.slider.min.js"></script>
+	<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="shared/slider/css/jquery.slider.min.css"></link>
+	
 	<!-- LOAD HIGHLIGHTER JS FILES -->
 	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>

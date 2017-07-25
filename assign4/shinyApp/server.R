@@ -57,11 +57,11 @@ shinyServer(
         })
         # Creating the training data frame
         training <- reactive({
-            dataset()[inTrain(), ]
+            dataset()[-inTrain(), ]
         })
         # Creating the testing data frame
         testing <- reactive({
-            dataset()[-inTrain(), ]
+            dataset()[inTrain(), ]
         })
         # Storing the predictors' column names based
         # on the selected information

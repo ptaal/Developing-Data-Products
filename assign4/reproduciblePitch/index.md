@@ -100,10 +100,10 @@ dim(testing)
 
 * The **table** displays the first 6 unmatched rows
 * **Unmatched Index**, displays the original index of all the unmatched rows
-* Data Set, displays the selected data set
-* Models, displays the selected model
-* Model Accuracy, displays the accuracy level in percentage
-* Cross-Tabulation Accuracy, displays the actual accuracy between the outcome column and the model predicted column in percentage
+* **Data Set**, displays the selected data set
+* **Models**, displays the selected model
+* **Model Accuracy**, displays the accuracy level in percentage
+* **Cross-Tabulation Accuracy**, displays the actual accuracy between the outcome column and the model predicted column in percentage
 
 #### Finally, use this application if you LOVE prediction
 

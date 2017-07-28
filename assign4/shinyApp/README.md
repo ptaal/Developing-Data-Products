@@ -21,4 +21,4 @@
 * Model Accuracy, displays the percentage of the model accuracy before applying the prediction.
 * Cross-Tabulation Accuracy, displays the percentage of the accuracy after comparing the outcome from the testing data set with the actual predicted values.
 
-#### Follow this link to see it: [Reproducible Pitch Presentation](https://ptaal.github.io/Developing-Data-Products/assign4/reproduciblePitch/index.html#1)
+##### Follow this link to see it: [Reproducible Pitch Presentation](https://ptaal.github.io/Developing-Data-Products/assign4/reproduciblePitch/index.html#1)
